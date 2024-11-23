@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentalhealth_app/utilities/emoticons.dart';
+import 'package:mentalhealth_app/utilities/exercise_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({required this.name, super.key});
@@ -21,11 +22,11 @@ class _HomePageState extends State<HomePage> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.message),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.person),
             label: '',
           ),
         ],
@@ -167,38 +168,26 @@ class _HomePageState extends State<HomePage> {
                           height: 20,
                         ),
                         //ListView
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: const Row(
+                        Expanded(
+                          child: ListView(
                             children: [
-                              Icon(Icons.favorite),
-                              SizedBox(
-                                width: 10,
+                              ExerciseTile(
+                                exerciseName: 'Speaking Skills',
+                                numberOfExercises: 15,
+                                icon: Icons.favorite,
+                                color: Colors.orange,
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  //Title
-                                  Text(
-                                    'Speaking Skills',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  //Subtitle
-                                  Text(
-                                    '15 more exercises',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.grey,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ],
+                              ExerciseTile(
+                                exerciseName: 'Reading Skills',
+                                numberOfExercises: 10,
+                                icon: Icons.person,
+                                color: Colors.green,
+                              ),
+                              ExerciseTile(
+                                exerciseName: 'Writing Skills',
+                                numberOfExercises: 20,
+                                icon: Icons.star,
+                                color: Colors.pink,
                               ),
                             ],
                           ),
